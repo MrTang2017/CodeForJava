@@ -1,5 +1,9 @@
 package com.myoffer.first;
-
+/**
+ * Çó¿ª¸ùºÅ
+ * @author ÌÀ¼ª
+ *
+ */
 public class MySqrt {
 
 	public static int mySqrt(int x) {
