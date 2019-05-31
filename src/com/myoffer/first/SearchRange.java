@@ -4,51 +4,36 @@ public class SearchRange {
 
 	public int[] searchRange(int[] nums, int target) {
 		int length = nums.length;
-		int start = 0;
-		int end = length - 1;
-		int getFirstK = GetFirstK(nums, length, target, start, end);
-		int getLastK = GetLastK(nums, length, target, start, end);
-		int []result= {getFirstK,getLastK};
-		return result;
+		int left = binarySearch(nums, target);
+		int right = binarySearch(nums, target+1)-1;
+		if (left==length || nums[right]!=target) {
+			return new int[]{-1,-1};
+		}
+		else {
+			return new int[] {left,Math.max(left, right)};
+		}
 	}
-
-	public int GetFirstK(int[] nums, int length, int target, int start, int end) {
-		if (start > end)
-			return -1;
-		int mid = (start + end) / 2;
-		int midData = nums[mid];
-		if (midData == target) {
-			if ((mid > 0 && nums[mid - 1] != target) || mid == 0)
-				return mid;
-			else
-				end = mid - 1;
-		} else if (midData > target)
-			end = mid - 1;
-		else
-			start = mid + 1;
-		return GetFirstK(nums, length, target, start, end);
-		
-	}
-
-	public int GetLastK(int[] nums, int length, int target, int start, int end) {
-		if (start > end)
-			return -1;
-		int mid = (start + end) / 2;
-		int midData = nums[mid];
-		if (midData == target) {
-			if ((mid < length - 1 && nums[mid + 1] != target) || mid == length - 1)
-				return mid;
-			else
-				end = mid - 1;
-		} else if (midData > target)
-			end = mid - 1;
-		else
-			start = mid + 1;
-		return GetLastK(nums, length, target, start, end);
+      private int binarySearch(int[] nums, int target) {
+		int l=0,r=nums.length;//注意r的取值
+		//如果l==r就出现循环，退不出结果
+		while(l<r) {
+			
+			int mid=l+(r-l)/2;
+			if (nums[mid]>=target) {
+				r=mid;
+			}else {
+				l=mid+1;
+			}	
+		}
+		return l;
 	}
 
 	public static void main(String[] args) {
 
+		
+		int[] nums= {2,3,3,4,4,5,6,7,8,9,9};
+		int[] result=new SearchRange().searchRange(nums, 9);
+		System.out.println(result[0]+" "+result[1]);
 	}
 
 }
