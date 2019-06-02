@@ -14,7 +14,8 @@ public class BlackWhiteBlock {
 		Scanner scanner = new Scanner(System.in);
 		int w = scanner.nextInt();// °×É«
 		int b = scanner.nextInt();// ºÚÉ«
-		int maxHeight = Math.min(w, b);
+		int maxHeight = (int) ((Math.sqrt(1+8*(w+b))-1)/2);
+		System.out.println(maxHeight);
 		int he = 0;
 		while (maxHeight > 0) {
 			if (isExist(maxHeight, w, b)) {
