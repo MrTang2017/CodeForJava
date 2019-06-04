@@ -5,7 +5,8 @@ import java.util.Comparator;
 
 /**
  * 
- * 给定一个区间的集合，找到需要移除区间的最小数量， 使剩余区间互不重叠。
+ * 给定一个区间的集合，
+ * 找到需要移除区间的最小数量， 使剩余区间互不重叠。
  * 
  * @author 汤吉
  *
@@ -16,7 +17,8 @@ import java.util.Comparator;
 public class EraseOverlapIntervals {
 
 	/**
-	 * 计算重叠最少的区间数 先计算最多能组成的不重叠区间个数， 然后用区间总个数减去不重叠区间的个数。
+	 * 计算重叠最少的区间数 先计算最多能组成的不重叠区间个数， 
+	 * 然后用区间总个数减去不重叠区间的个数。
 	 * 
 	 * @param intervals
 	 * @return
