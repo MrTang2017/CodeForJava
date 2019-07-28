@@ -36,11 +36,9 @@ public class FindLongestWord {
 		int j = 0;
 		for (int i = j; i < s.length() && j < word.length();) {
 			if (s.charAt(i) == word.charAt(j)) {
-				i++;
 				j++;
-			} else {
-				i++;
-			}
+			} 
+			i++;		
 		}
 
 		if (j >= word.length()) {
